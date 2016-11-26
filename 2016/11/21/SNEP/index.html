@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Stochastic Natural Gradient EP @ NIPS &middot; Leonard Hasenclever
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/css/poole.css">
+  <link rel="stylesheet" href="public/css/syntax.css">
+  <link rel="stylesheet" href="public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="academicons-1.7.0/css/academicons.css"/>
+
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Leonard Hasenclever</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/blog/">Blog</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="https://github.com/lqh20">Code</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; Leonard Hasenclever. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Leonard Hasenclever</a>
+            <small>Machine Learning PhD Student at Oxford</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Stochastic Natural Gradient EP @ NIPS</h1>
+  <span class="post-date">21 Nov 2016</span>
+  <p>I will present our work on distributed Bayesian learning with stochastic natural gradient EP at the <a href="http://approximateinference.org/">Advances in Approximate Bayesian Inference Workshop</a> and the <a href="http://bayesiandeeplearning.org/">Bayesian Deep Learning Workshop</a> at NIPS 2016. It’s joint work with Stefan Webb, Thibaut Lienart, Sebastian Vollmer (all Oxford), Balaji Lakshminarayanan, Charles Blundell (both Google DeepMind) and Yee Whye Teh (Oxford &amp; Google DeepMind). Here is a link to
+our <a href="https://arxiv.org/abs/1512.09327">arxiv preprint</a>.</p>
+
+<p>Here’s the abstract:</p>
+
+<blockquote>
+  <p>This paper makes two contributions to Bayesian machine learning algorithms. Firstly, we propose stochastic natural gradient expectation propagation (SNEP), a novel alternative to expectation propagation (EP), a popular variational inference algorithm. SNEP is a black box variational algorithm, in that it does not require any simplifying assumptions on the distribution of interest, beyond the existence of some Monte Carlo sampler for estimating the moments of the EP tilted distributions. Further, as opposed to EP which has no guarantee of convergence, SNEP can be shown to be convergent, even when using Monte Carlo moment estimates. Secondly, we propose a novel architecture for distributed Bayesian learning which we call the posterior server. The posterior server allows scalable and robust Bayesian learning in cases where a dataset is stored in a distributed manner across a cluster, with each compute node containing a disjoint subset of data. An independent Monte Carlo sampler is run on each compute node, with direct access only to the local data subset, but which targets an approximation to the global posterior distribution given all data across the whole cluster. This is achieved by using a distributed asynchronous implementation of SNEP to pass messages across the cluster. We demonstrate SNEP and the posterior server on distributed Bayesian learning of logistic regression and neural networks.</p>
+</blockquote>
+
+<p>I am very excited about SNEP. It is a neat extension of EP that lends itself well to distributed computing. It is both interesting as a variational inference method and shows great potential in the context of Bayesian neural networks. In our experiments SNEP is roughly as fast as existing distributed SGD methods but has the advantage of being Bayesian. We’ve recently released the code at <a href="https://github.com/BigBayes/PosteriorServer">https://github.com/BigBayes/PosteriorServer</a>. Check it out!</p>
+
+<div class="post-content">
+
+  
+
+  
+    <h2>References</h2>
+    <h2 class="bibliography">2016</h2>
+<ul class="bibliography"><li>
+
+
+
+L. Hasenclever,
+
+
+
+
+S. Webb,
+
+
+
+
+T. Lienart,
+
+
+
+
+S. Vollmer,
+
+
+
+
+B. Lakshminarayanan,
+
+
+
+
+C. Blundell,
+
+
+
+
+Y. W. Teh,
+
+<span id="HasWebLie2015a"><b>Distributed Bayesian Learning with Stochastic Natural-gradient Expectation Propagation and the Posterior Server</b>, 2016. </span>
+
+<br />
+
+<div id="HasWebLie2015a-supplementary">
+  
+  <button onclick="$('#HasWebLie2015a-abstract').toggle( );$('#HasWebLie2015a-bibtex').hide();">Abstract</button>
+  
+  <button onclick="$('#HasWebLie2015a-bibtex').toggle( );$('#HasWebLie2015a-abstract').hide();">BibTeX</button>
+  
+  <form method="get" action="https://arxiv.org/abs/1512.09327">
+    <button type="submit">arXiv</button>
+  </form>
+  
+
+  
+  <form method="get" action="https://arxiv.org/pdf/1512.09327.pdf">
+    <button type="submit">PDF</button>
+  </form>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <form method="get" action="https://github.com/BigBayes/PosteriorServer">
+    <button type="submit">Software</button>
+  </form>
+  
+
+  
+
+  
+
+  
+  <div id="HasWebLie2015a-abstract" style="display:none;">
+    <div class="abstract">This paper makes two contributions to Bayesian machine learning algorithms. Firstly, we propose stochastic natural gradient expectation propagation (SNEP), a novel alternative to expectation propagation (EP), a popular variational inference algorithm. SNEP is a black box variational algorithm, in that it does not require any simplifying assumptions on the distribution of interest, beyond the existence of some Monte Carlo sampler for estimating the moments of the EP tilted distributions. Further, as opposed to EP which has no guarantee of convergence, SNEP can be shown to be convergent, even when using Monte Carlo moment estimates. Secondly, we propose a novel architecture for distributed Bayesian learning which we call the posterior server. The posterior server allows scalable and robust Bayesian learning in cases where a dataset is stored in a distributed manner across a cluster, with each compute node containing a disjoint subset of data. An independent Monte Carlo sampler is run on each compute node, with direct access only to the local data subset, but which targets an approximation to the global posterior distribution given all data across the whole cluster. This is achieved by using a distributed asynchronous implementation of SNEP to pass messages across the cluster. We demonstrate SNEP and the posterior server on distributed Bayesian learning of logistic regression and neural networks.
+</div>
+  </div>
+  
+
+  <div id="HasWebLie2015a-bibtex" style="display:none;">
+    <pre>@unpublished{HasWebLie2015a,
+  author = {Hasenclever, L. and Webb, S. and Lienart, T. and Vollmer, S. and Lakshminarayanan, B. and Blundell, C. and Teh, Y. W.},
+  note = {ArXiv e-prints: 1512.09327},
+  title = {Distributed {B}ayesian Learning with Stochastic Natural-gradient Expectation Propagation and the Posterior Server},
+  year = {2016}
+}
+</pre>
+  </div>
+
+</div>
+<a class="details" href="/publications/HasWebLie2015a/"></a></li></ul>
+  
+
+</div>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/11/15/relativistic-monte-carlo/">
+            Relativistic Monte Carlo @ BDL2016
+            <small>15 Nov 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

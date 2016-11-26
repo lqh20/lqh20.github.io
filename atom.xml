@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Leonard Hasenclever</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2016-11-26T21:12:29+00:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Leonard Hasenclever</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Stochastic Natural Gradient EP @ NIPS</title>
+   <link href="http://localhost:4000/2016/11/21/SNEP/"/>
+   <updated>2016-11-21T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2016/11/21/SNEP</id>
+   <content type="html">&lt;p&gt;I will present our work on distributed Bayesian learning with stochastic natural gradient EP at the &lt;a href=&quot;http://approximateinference.org/&quot;&gt;Advances in Approximate Bayesian Inference Workshop&lt;/a&gt; and the &lt;a href=&quot;http://bayesiandeeplearning.org/&quot;&gt;Bayesian Deep Learning Workshop&lt;/a&gt; at NIPS 2016. It’s joint work with Stefan Webb, Thibaut Lienart, Sebastian Vollmer (all Oxford), Balaji Lakshminarayanan, Charles Blundell (both Google DeepMind) and Yee Whye Teh (Oxford &amp;amp; Google DeepMind). Here is a link to
+our &lt;a href=&quot;https://arxiv.org/abs/1512.09327&quot;&gt;arxiv preprint&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here’s the abstract:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This paper makes two contributions to Bayesian machine learning algorithms. Firstly, we propose stochastic natural gradient expectation propagation (SNEP), a novel alternative to expectation propagation (EP), a popular variational inference algorithm. SNEP is a black box variational algorithm, in that it does not require any simplifying assumptions on the distribution of interest, beyond the existence of some Monte Carlo sampler for estimating the moments of the EP tilted distributions. Further, as opposed to EP which has no guarantee of convergence, SNEP can be shown to be convergent, even when using Monte Carlo moment estimates. Secondly, we propose a novel architecture for distributed Bayesian learning which we call the posterior server. The posterior server allows scalable and robust Bayesian learning in cases where a dataset is stored in a distributed manner across a cluster, with each compute node containing a disjoint subset of data. An independent Monte Carlo sampler is run on each compute node, with direct access only to the local data subset, but which targets an approximation to the global posterior distribution given all data across the whole cluster. This is achieved by using a distributed asynchronous implementation of SNEP to pass messages across the cluster. We demonstrate SNEP and the posterior server on distributed Bayesian learning of logistic regression and neural networks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I am very excited about SNEP. It is a neat extension of EP that lends itself well to distributed computing. It is both interesting as a variational inference method and shows great potential in the context of Bayesian neural networks. In our experiments SNEP is roughly as fast as existing distributed SGD methods but has the advantage of being Bayesian. We’ve recently released the code at &lt;a href=&quot;https://github.com/BigBayes/PosteriorServer&quot;&gt;https://github.com/BigBayes/PosteriorServer&lt;/a&gt;. Check it out!&lt;/p&gt;
+
+&lt;div class=&quot;post-content&quot;&gt;
+
+  
+
+  
+    &lt;h2&gt;References&lt;/h2&gt;
+    &lt;h2 class=&quot;bibliography&quot;&gt;2016&lt;/h2&gt;
+&lt;ul class=&quot;bibliography&quot;&gt;&lt;li&gt;
+
+
+
+L. Hasenclever,
+
+
+
+
+S. Webb,
+
+
+
+
+T. Lienart,
+
+
+
+
+S. Vollmer,
+
+
+
+
+B. Lakshminarayanan,
+
+
+
+
+C. Blundell,
+
+
+
+
+Y. W. Teh,
+
+&lt;span id=&quot;HasWebLie2015a&quot;&gt;&lt;b&gt;Distributed Bayesian Learning with Stochastic Natural-gradient Expectation Propagation and the Posterior Server&lt;/b&gt;, 2016. &lt;/span&gt;
+
+&lt;br /&gt;
+
+&lt;div id=&quot;HasWebLie2015a-supplementary&quot;&gt;
+  
+  &lt;button onclick=&quot;$('#HasWebLie2015a-abstract').toggle( );$('#HasWebLie2015a-bibtex').hide();&quot;&gt;Abstract&lt;/button&gt;
+  
+  &lt;button onclick=&quot;$('#HasWebLie2015a-bibtex').toggle( );$('#HasWebLie2015a-abstract').hide();&quot;&gt;BibTeX&lt;/button&gt;
+  
+  &lt;form method=&quot;get&quot; action=&quot;https://arxiv.org/abs/1512.09327&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;arXiv&lt;/button&gt;
+  &lt;/form&gt;
+  
+
+  
+  &lt;form method=&quot;get&quot; action=&quot;https://arxiv.org/pdf/1512.09327.pdf&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;PDF&lt;/button&gt;
+  &lt;/form&gt;
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  &lt;form method=&quot;get&quot; action=&quot;https://github.com/BigBayes/PosteriorServer&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;Software&lt;/button&gt;
+  &lt;/form&gt;
+  
+
+  
+
+  
+
+  
+  &lt;div id=&quot;HasWebLie2015a-abstract&quot; style=&quot;display:none;&quot;&gt;
+    &lt;div class=&quot;abstract&quot;&gt;This paper makes two contributions to Bayesian machine learning algorithms. Firstly, we propose stochastic natural gradient expectation propagation (SNEP), a novel alternative to expectation propagation (EP), a popular variational inference algorithm. SNEP is a black box variational algorithm, in that it does not require any simplifying assumptions on the distribution of interest, beyond the existence of some Monte Carlo sampler for estimating the moments of the EP tilted distributions. Further, as opposed to EP which has no guarantee of convergence, SNEP can be shown to be convergent, even when using Monte Carlo moment estimates. Secondly, we propose a novel architecture for distributed Bayesian learning which we call the posterior server. The posterior server allows scalable and robust Bayesian learning in cases where a dataset is stored in a distributed manner across a cluster, with each compute node containing a disjoint subset of data. An independent Monte Carlo sampler is run on each compute node, with direct access only to the local data subset, but which targets an approximation to the global posterior distribution given all data across the whole cluster. This is achieved by using a distributed asynchronous implementation of SNEP to pass messages across the cluster. We demonstrate SNEP and the posterior server on distributed Bayesian learning of logistic regression and neural networks.
+&lt;/div&gt;
+  &lt;/div&gt;
+  
+
+  &lt;div id=&quot;HasWebLie2015a-bibtex&quot; style=&quot;display:none;&quot;&gt;
+    &lt;pre&gt;@unpublished{HasWebLie2015a,
+  author = {Hasenclever, L. and Webb, S. and Lienart, T. and Vollmer, S. and Lakshminarayanan, B. and Blundell, C. and Teh, Y. W.},
+  note = {ArXiv e-prints: 1512.09327},
+  title = {Distributed {B}ayesian Learning with Stochastic Natural-gradient Expectation Propagation and the Posterior Server},
+  year = {2016}
+}
+&lt;/pre&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;a class=&quot;details&quot; href=&quot;/publications/HasWebLie2015a/&quot;&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+  
+
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Relativistic Monte Carlo @ BDL2016</title>
+   <link href="http://localhost:4000/2016/11/15/relativistic-monte-carlo/"/>
+   <updated>2016-11-15T00:00:00+00:00</updated>
+   <id>http://localhost:4000/2016/11/15/relativistic-monte-carlo</id>
+   <content type="html">&lt;p&gt;Our work (joint work with Xiaoyu Lu, Valerio Perrone, Sebastian Vollmer and Yee Whye Teh) on relativistic Monte Carlo was accepted as a contributed talk at the &lt;a href=&quot;http://bayesiandeeplearning.org/&quot;&gt;Bayesian Deep Learning Workshop at NIPS 2016&lt;/a&gt;. Come along at 11:20am on December 10 when Valerio and Xiaoyu will be presenting our work.&lt;/p&gt;
+
+&lt;p&gt;We are very excited about Relativistic Monte Carlo as a way to derive an MCMC algorithm more robust to hyperparameter choice. Here is the abstract:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hamiltonian Monte Carlo (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm that generates proposals for a Metropolis-Hastings algorithm by simulating the dynamics of a Hamiltonian system. However, HMC is sensitive to large time discretizations and performs poorly if there is a mismatch between the spatial geometry of the target distribution and the scales of the momentum distribution. In particular the mass matrix of HMC is hard to tune well. In order to alleviate these problems we propose relativistic Hamiltonian Monte Carlo, a version of HMC based on relativistic dynamics that introduce a maximum velocity on particles. We also derive stochastic gradient versions of the algorithm and show that the resulting algorithms bear interesting relationships to gradient clipping, RMSprop, Adagrad and Adam, popular optimisation methods in deep learning. Based on this, we develop relativistic stochastic gradient descent by taking the zero-temperature limit of relativistic stochastic gradient Hamiltonian Monte Carlo. In experiments we show that the relativistic algorithms perform better than classical Newtonian variants and Adam.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;post-content&quot;&gt;
+
+  
+
+  
+    &lt;h2&gt;References&lt;/h2&gt;
+    &lt;h2 class=&quot;bibliography&quot;&gt;2016&lt;/h2&gt;
+&lt;ul class=&quot;bibliography&quot;&gt;&lt;li&gt;
+
+
+
+X. Lu,
+
+
+
+
+V. Perrone,
+
+
+
+
+L. Hasenclever,
+
+
+
+
+Y. W. Teh,
+
+
+
+
+S. J. Vollmer,
+
+&lt;span id=&quot;LuPerHas2016a&quot;&gt;&lt;b&gt;Relativistic Monte Carlo&lt;/b&gt;, 2016. &lt;/span&gt;
+
+&lt;br /&gt;
+
+&lt;div id=&quot;LuPerHas2016a-supplementary&quot;&gt;
+  
+  &lt;button onclick=&quot;$('#LuPerHas2016a-abstract').toggle( );$('#LuPerHas2016a-bibtex').hide();&quot;&gt;Abstract&lt;/button&gt;
+  
+  &lt;button onclick=&quot;$('#LuPerHas2016a-bibtex').toggle( );$('#LuPerHas2016a-abstract').hide();&quot;&gt;BibTeX&lt;/button&gt;
+  
+  &lt;form method=&quot;get&quot; action=&quot;https://arxiv.org/abs/1609.04388&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;arXiv&lt;/button&gt;
+  &lt;/form&gt;
+  
+
+  
+  &lt;form method=&quot;get&quot; action=&quot;https://arxiv.org/pdf/1609.04388v1.pdf&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;PDF&lt;/button&gt;
+  &lt;/form&gt;
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  &lt;div id=&quot;LuPerHas2016a-abstract&quot; style=&quot;display:none;&quot;&gt;
+    &lt;div class=&quot;abstract&quot;&gt;Hamiltonian Monte Carlo (HMC) is a popular Markov chain Monte Carlo (MCMC) algorithm that generates proposals for a Metropolis-Hastings algorithm by simulating the dynamics of a Hamiltonian system. However, HMC is sensitive to large time discretizations and performs poorly if there is a mismatch between the spatial geometry of the target distribution and the scales of the momentum distribution. In particular the mass matrix of HMC is hard to tune well. In order to alleviate these problems we propose relativistic Hamiltonian Monte Carlo, a version of HMC based on relativistic dynamics that introduce a maximum velocity on particles. We also derive stochastic gradient versions of the algorithm and show that the resulting algorithms bear interesting relationships to gradient clipping, RMSprop, Adagrad and Adam, popular optimisation methods in deep learning. Based on this, we develop relativistic stochastic gradient descent by taking the zero-temperature limit of relativistic stochastic gradient Hamiltonian Monte Carlo. In experiments we show that the relativistic algorithms perform better than classical Newtonian variants and Adam.&lt;/div&gt;
+  &lt;/div&gt;
+  
+
+  &lt;div id=&quot;LuPerHas2016a-bibtex&quot; style=&quot;display:none;&quot;&gt;
+    &lt;pre&gt;@unpublished{LuPerHas2016a,
+  author = {Lu, X. and Perrone, V. and Hasenclever, L. and Teh, Y. W. and Vollmer, S. J.},
+  note = {ArXiv e-prints: 1609.04388},
+  title = {Relativistic {M}onte {C}arlo},
+  year = {2016}
+}
+&lt;/pre&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+&lt;a class=&quot;details&quot; href=&quot;/publications/LuPerHas2016a/&quot;&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+  
+
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+
+</feed>
